@@ -1,0 +1,2 @@
+sentence_transformers==2.2.2
+googletrans==4.0.0-rc1
