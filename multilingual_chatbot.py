@@ -149,7 +149,10 @@ if __name__ == "__main__":
     # Train the model(Embedding question sentences)
     bert_model = SentenceTransformer(
         'sentence-transformers/distilbert-base-nli-max-tokens')
+    
+    print('Training...')
     sentence_embeddings = bert_model.encode(crypto_df['question'])
+    print('Training is done.')
 
     # Check an example of cosine-similarity between similar questions
     # question1 = bert_model.encode(
@@ -163,7 +166,7 @@ if __name__ == "__main__":
         user_ask = input('Type your question: ')
 
         # exit_conditions
-        if 'bye' or 'quit' or 'exit' in user_ask.lower():
+        if 'bye' in user_ask.lower():
             break
 
         # get answer
