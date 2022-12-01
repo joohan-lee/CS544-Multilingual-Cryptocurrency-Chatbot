@@ -172,5 +172,5 @@ if __name__ == "__main__":
         # get answer
         answer_sentence = return_answer(user_ask, crypto_df['answer'])
 
-        print(answer_sentence)
+        print('>', answer_sentence)
         print('---------------')
