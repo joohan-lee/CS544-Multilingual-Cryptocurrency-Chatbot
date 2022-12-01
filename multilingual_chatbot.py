@@ -27,7 +27,7 @@ import pandas as pd
 
 def load_qa():
     # Load QA dataset
-    with open("/data/quora_all_qa.csv", 'r') as file:
+    with open("./data/quora_all_qa.csv", 'r') as file:
         csvreader = csv.reader(file)
         question_list = []
         answer_list = []
@@ -103,7 +103,7 @@ def return_answer(question, answer_list):
     if 'price' in question.lower():
         # check if user is asking the price of crpytocurrency in our supported list.
         crypto_set = set()
-        with open('/content/drive/MyDrive/Colab Notebooks/CSCI544_ANLP/data/top50_crypto.txt') as f_cryto:
+        with open('/data/top50_crypto.txt') as f_cryto:
             for line in f_cryto.readlines():
                 crypto_set.add(line.strip())
 
@@ -142,7 +142,7 @@ def return_answer(question, answer_list):
 
 """### Chatbot"""
 
-if __name__ == "main":
+if __name__ == "__main__":
     # Load the qa data
     crypto_df = load_qa()
 
@@ -152,18 +152,21 @@ if __name__ == "main":
     sentence_embeddings = bert_model.encode(crypto_df['question'])
 
     # Check an example of cosine-similarity between similar questions
-    question1 = bert_model.encode(
-        ['how do people send crypto from a trust wallet to binance'])
-    question2 = bert_model.encode(
-        ['how to send cyrto to binance from trust wallet'])
-    print(cosine_similarity(question2, question1))
+    # question1 = bert_model.encode(
+    #     ['how do people send crypto from a trust wallet to binance'])
+    # question2 = bert_model.encode(
+    #     ['how to send cyrto to binance from trust wallet'])
+    # print(cosine_similarity(question2, question1))
 
     while True:
+        # Users' ask
         user_ask = input('Type your question: ')
 
-        if 'bye' in user_ask.lower():
+        # exit_conditions
+        if 'bye' or 'quit' or 'exit' in user_ask.lower():
             break
 
+        # get answer
         answer_sentence = return_answer(user_ask, crypto_df['answer'])
 
         print(answer_sentence)

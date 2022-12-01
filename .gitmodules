@@ -1,0 +1,3 @@
+[submodule "Scraping-Quora-CryptoQA"]
+	path = Scraping-Quora-CryptoQA
+	url = https://github.com/Tetsu87/Scraping-Quora-CryptoQA.git
