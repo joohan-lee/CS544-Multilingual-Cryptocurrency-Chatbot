@@ -103,7 +103,7 @@ def return_answer(question, answer_list):
     if 'price' in question.lower():
         # check if user is asking the price of crpytocurrency in our supported list.
         crypto_set = set()
-        with open('/data/top50_crypto.txt') as f_cryto:
+        with open('./data/top50_crypto.txt') as f_cryto:
             for line in f_cryto.readlines():
                 crypto_set.add(line.strip())
 
