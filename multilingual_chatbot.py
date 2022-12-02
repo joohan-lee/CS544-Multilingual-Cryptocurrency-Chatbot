@@ -147,6 +147,7 @@ if __name__ == "__main__":
     crypto_df = load_qa()
 
     # Train the model(Embedding question sentences)
+    # multi-qa-MiniLM-L6-cos-v1
     bert_model = SentenceTransformer(
         'sentence-transformers/distilbert-base-nli-max-tokens')
     
